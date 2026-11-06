@@ -16,7 +16,7 @@ class ServicioSolicitudesServicio {
           ),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -52,7 +52,7 @@ class ServicioSolicitudesServicio {
             'descripcion': descripcion,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -82,7 +82,7 @@ class ServicioSolicitudesServicio {
           headers: _encabezados(token),
           body: jsonEncode({'estado': estado}),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 

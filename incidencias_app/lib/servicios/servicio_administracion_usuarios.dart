@@ -11,7 +11,7 @@ class ServicioAdministracionUsuarios {
           Uri.parse('${ConfiguracionApi.urlBase}/api/usuarios/administracion'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -39,7 +39,7 @@ class ServicioAdministracionUsuarios {
           headers: _encabezados(token),
           body: jsonEncode({'activo': activo}),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     return _validarObjeto(respuesta, 'No se pudo cambiar el estado del usuario.');
   }
@@ -55,7 +55,7 @@ class ServicioAdministracionUsuarios {
           headers: _encabezados(token),
           body: jsonEncode({'rol': rol}),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     return _validarObjeto(respuesta, 'No se pudo cambiar el rol del usuario.');
   }

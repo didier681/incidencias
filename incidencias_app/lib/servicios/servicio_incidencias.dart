@@ -11,7 +11,7 @@ class ServicioIncidencias {
           Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 
@@ -49,7 +49,7 @@ class ServicioIncidencias {
           uri,
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 
@@ -74,7 +74,7 @@ class ServicioIncidencias {
           headers: _encabezados(token),
           body: jsonEncode({'estado': estado}),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 
@@ -98,7 +98,7 @@ class ServicioIncidencias {
           Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias/$incidenciaId'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 
@@ -119,7 +119,7 @@ class ServicioIncidencias {
           Uri.parse('${ConfiguracionApi.urlBase}/api/categorias'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 
@@ -151,7 +151,7 @@ class ServicioIncidencias {
             'ubicacion': ubicacion,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificarRespuesta(respuesta);
 

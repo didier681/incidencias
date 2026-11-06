@@ -18,7 +18,7 @@ class ServicioAutenticacion {
             'contrasena': contrasena,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -47,7 +47,7 @@ class ServicioAutenticacion {
             'contrasena': contrasena,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 

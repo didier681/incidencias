@@ -11,7 +11,7 @@ class ServicioNotificaciones {
           Uri.parse('${ConfiguracionApi.urlBase}/api/notificaciones'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -37,7 +37,7 @@ class ServicioNotificaciones {
           Uri.parse('${ConfiguracionApi.urlBase}/api/notificaciones/$notificacionId/leida'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 

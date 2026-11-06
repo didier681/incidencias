@@ -9,4 +9,6 @@ class ConfiguracionApi {
     'API_URL',
     defaultValue: 'http://10.0.2.2:8080',
   );
+
+  static const Duration tiempoEspera = Duration(seconds: 60);
 }

@@ -15,7 +15,7 @@ class ServicioEstadisticas {
             'Content-Type': 'application/json; charset=UTF-8',
           },
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     dynamic datos;
 

@@ -11,7 +11,7 @@ class ServicioCategorias {
           Uri.parse('${ConfiguracionApi.urlBase}/api/categorias'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -42,7 +42,7 @@ class ServicioCategorias {
             'descripcion': descripcion,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -72,7 +72,7 @@ class ServicioCategorias {
             'descripcion': descripcion,
           }),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     final datos = _decodificar(respuesta);
 
@@ -96,7 +96,7 @@ class ServicioCategorias {
           Uri.parse('${ConfiguracionApi.urlBase}/api/categorias/$categoriaId'),
           headers: _encabezados(token),
         )
-        .timeout(const Duration(seconds: 20));
+        .timeout(ConfiguracionApi.tiempoEspera);
 
     if (respuesta.statusCode != 204 && respuesta.statusCode != 200) {
       final datos = _decodificar(respuesta);
