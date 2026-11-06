@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:incidencias_app/configuracion/configuracion_api.dart';
 
 class ServicioAutenticacion {
-  static const String _urlBase = 'http://10.168.13.192:8080';
 
   Future<Map<String, dynamic>> iniciarSesion({
     required String correo,
@@ -11,7 +11,7 @@ class ServicioAutenticacion {
   }) async {
     final respuesta = await http
         .post(
-          Uri.parse('$_urlBase/api/usuarios/login'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/usuarios/login'),
           headers: _encabezados(),
           body: jsonEncode({
             'correo': correo,
@@ -39,7 +39,7 @@ class ServicioAutenticacion {
   }) async {
     final respuesta = await http
         .post(
-          Uri.parse('$_urlBase/api/usuarios/registro'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/usuarios/registro'),
           headers: _encabezados(),
           body: jsonEncode({
             'nombre': nombre,

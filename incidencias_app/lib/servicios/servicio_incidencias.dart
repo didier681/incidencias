@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:incidencias_app/configuracion/configuracion_api.dart';
 
 class ServicioIncidencias {
-  static const String _urlBase = 'http://10.168.13.192:8080';
 
   Future<List<Map<String, dynamic>>> listarPropias(String token) async {
     final respuesta = await http
         .get(
-          Uri.parse('$_urlBase/api/incidencias'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias'),
           headers: _encabezados(token),
         )
         .timeout(const Duration(seconds: 20));
@@ -39,7 +39,7 @@ class ServicioIncidencias {
       parametros['categoriaId'] = categoriaId;
     }
 
-    final uriBase = Uri.parse('$_urlBase/api/incidencias/administracion');
+    final uriBase = Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias/administracion');
     final uri = parametros.isEmpty
         ? uriBase
         : uriBase.replace(queryParameters: parametros);
@@ -70,7 +70,7 @@ class ServicioIncidencias {
   }) async {
     final respuesta = await http
         .put(
-          Uri.parse('$_urlBase/api/incidencias/$incidenciaId/estado'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias/$incidenciaId/estado'),
           headers: _encabezados(token),
           body: jsonEncode({'estado': estado}),
         )
@@ -95,7 +95,7 @@ class ServicioIncidencias {
   }) async {
     final respuesta = await http
         .get(
-          Uri.parse('$_urlBase/api/incidencias/$incidenciaId'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias/$incidenciaId'),
           headers: _encabezados(token),
         )
         .timeout(const Duration(seconds: 20));
@@ -116,7 +116,7 @@ class ServicioIncidencias {
   Future<List<Map<String, dynamic>>> listarCategorias(String token) async {
     final respuesta = await http
         .get(
-          Uri.parse('$_urlBase/api/categorias'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/categorias'),
           headers: _encabezados(token),
         )
         .timeout(const Duration(seconds: 20));
@@ -142,7 +142,7 @@ class ServicioIncidencias {
   }) async {
     final respuesta = await http
         .post(
-          Uri.parse('$_urlBase/api/incidencias'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/incidencias'),
           headers: _encabezados(token),
           body: jsonEncode({
             'categoriaId': categoriaId,

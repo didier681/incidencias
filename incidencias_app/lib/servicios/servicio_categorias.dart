@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:incidencias_app/configuracion/configuracion_api.dart';
 
 class ServicioCategorias {
-  static const String _urlBase = 'http://10.168.13.192:8080';
 
   Future<List<Map<String, dynamic>>> listar(String token) async {
     final respuesta = await http
         .get(
-          Uri.parse('$_urlBase/api/categorias'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/categorias'),
           headers: _encabezados(token),
         )
         .timeout(const Duration(seconds: 20));
@@ -35,7 +35,7 @@ class ServicioCategorias {
   }) async {
     final respuesta = await http
         .post(
-          Uri.parse('$_urlBase/api/categorias'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/categorias'),
           headers: _encabezados(token),
           body: jsonEncode({
             'nombre': nombre,
@@ -65,7 +65,7 @@ class ServicioCategorias {
   }) async {
     final respuesta = await http
         .put(
-          Uri.parse('$_urlBase/api/categorias/$categoriaId'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/categorias/$categoriaId'),
           headers: _encabezados(token),
           body: jsonEncode({
             'nombre': nombre,
@@ -93,7 +93,7 @@ class ServicioCategorias {
   }) async {
     final respuesta = await http
         .delete(
-          Uri.parse('$_urlBase/api/categorias/$categoriaId'),
+          Uri.parse('${ConfiguracionApi.urlBase}/api/categorias/$categoriaId'),
           headers: _encabezados(token),
         )
         .timeout(const Duration(seconds: 20));
